@@ -17,6 +17,7 @@ db/*.sqlite3
 db/*.sqlite3-journal
 log/*.log
 log/*.age
+test/dummy/log/*.log
 hudson
 yard
 tmp
@@ -47,5 +48,3 @@ doc/graphs/*.svg
 .ruby-gemset
 *.swo
 *.swn
-test/dummy/log/*.log
-test/dummy/log/development.log
