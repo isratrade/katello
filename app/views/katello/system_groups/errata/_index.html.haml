@@ -31,7 +31,7 @@
           #{_("Applied")}
 
 = content_for :content do
-  %input.events{:type => "hidden", 'data-url' => status_katello_system_group_events_path(@group.id)}
+  %input.events{:type => "hidden", 'data-url' => status_system_group_events_path(@group.id)}
 
   #errata_container{ "data-parent_id" => @group.id }
     %table.filter_table.ajaxScroll

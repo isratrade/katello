@@ -32,7 +32,7 @@ module Navigation
     def menu_systems_org_list
       {:key => :registered,
        :name => _("All"),
-       :url => katello_systems_path,
+       :url => systems_path,
        :if => lambda{current_organization && System.any_readable?(current_organization)},
        :options => {:class => 'systems second_level', "data-menu" => "systems"}
       }
@@ -50,7 +50,7 @@ module Navigation
     def menu_system_groups
       {:key => :system_groups,
        :name => _("System Groups"),
-       :url => katello_system_groups_path,
+       :url => system_groups_path,
        :if => lambda {current_organization && SystemGroup.any_readable?(current_organization)},
        :options => {:class => 'systems second_level', "data-menu" => "systems"}
       }
@@ -134,7 +134,7 @@ module Navigation
         } if Katello.config.katello?
       menu << { :key => :errata,
                 :name => _("Errata"),
-                :url => lambda{katello_system_errata_path(@system.id)},
+                :url => lambda{system_errata_path(@system.id)},
                 :if => lambda{@system},
                 :options => {:class => "third_level panel_link"},
         } if Katello.config.katello?
@@ -160,7 +160,7 @@ module Navigation
       ]
       menu << { :key => :system_group_content,
                 :name => _("Content"),
-                :url => lambda{katello_system_group_path(@group.id)},
+                :url => lambda{system_group_path(@group.id)},
                 :if => lambda{@group},
                 :options => {:class => "panel_link menu_parent"},
                 :items => system_groups_content_subnav
@@ -179,7 +179,7 @@ module Navigation
       ]
       menu << { :key => :system_group_events,
                 :name => _("Events History"),
-                :url => lambda{katello_system_group_events_path(@group.id)},
+                :url => lambda{system_group_events_path(@group.id)},
                 :if => lambda{@group},
                 :options => {:class => "third_level panel_link"}
         } if Katello.config.katello?
@@ -190,13 +190,13 @@ module Navigation
       [
         { :key => :system_groups_packages,
           :name => _("Packages"),
-          :url => lambda{katello_system_group_packages_path(@group.id)},
+          :url => lambda{system_group_packages_path(@group.id)},
           :if => lambda{@group},
           :options => {:class => "third_level panel_link"},
         },
         { :key => :system_group_errata,
           :name => _("Errata"),
-          :url => lambda{katello_system_group_errata_path(@group.id)},
+          :url => lambda{system_group_errata_path(@group.id)},
           :if => lambda{@group},
           :options => {:class => "third_level panel_link"},
         }

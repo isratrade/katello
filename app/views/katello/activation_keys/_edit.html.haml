@@ -76,7 +76,7 @@
           .grid_10.la#activation_key_usage_limit{'name' => 'activation_key[usage_limit]', :class => ("editable edit_number" if editable), 'data-unlimited' => -1, 'data-min' => 1, 'data-url' => katello_activation_key_path(@activation_key.id)} #{@activation_key[:usage_limit] == -1 ? _('Unlimited') : @activation_key[:usage_limit]}
 
         .prefix_2.grid_10.ra
-          #cancel_key.button{'data-url' => edit_katello_activation_key_path(@activation_key)}
+          #cancel_key.button{'data-url' => edit_activation_key_path(@activation_key)}
             #{_("Cancel")}
           %input#save_key.button{:type => "submit", :value => "#{_("Save")}"}
 

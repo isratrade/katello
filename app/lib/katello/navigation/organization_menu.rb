@@ -32,7 +32,7 @@ module Navigation
     def menu_org_list
       {:key => :org_list,
        :name => _("List"),
-       :url => katello_organizations_path,
+       :url => organizations_path,
        :options => {:class => 'organizations second_level', "data-menu" => "organizations"}
       }
     end
@@ -47,7 +47,7 @@ module Navigation
         },
         {:key => :organization_default_info,
          :name => _("Default Custom Info"),
-         :url => lambda{katello_organization_default_info_path(@organization.label, "system")},
+         :url => lambda{organization_default_info_path(@organization.label, "system")},
          :if => lambda{@organization},
          :options => {:class => "panel_link menu_parent"},
          :items => default_info_subnav
@@ -65,13 +65,13 @@ module Navigation
       [
         { :key => :org_system_default_info,
           :name => _("System Default Info"),
-          :url => lambda{katello_organization_default_info_path(@organization.label, "system")},
+          :url => lambda{organization_default_info_path(@organization.label, "system")},
           :if => lambda{@organization},
           :options => {:class => "third_level panel_link"}
         },
         { :key => :org_distributor_default_info,
           :name => _("Distributor Default Info"),
-          :url => lambda{katello_organization_default_info_path(@organization.label, "distributor")},
+          :url => lambda{organization_default_info_path(@organization.label, "distributor")},
           :if => lambda{@organization},
           :options => {:class => "third_level panel_link"}
         }

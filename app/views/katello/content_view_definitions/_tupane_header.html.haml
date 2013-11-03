@@ -4,7 +4,7 @@
 = content_for :remove_item do
   .pane_actions
     - if Katello::ContentViewDefinition.creatable?(current_organization)
-      %a.pane_action.separator.copy-tipsy{'data-url' => clone_katello_content_view_definition_path(@view_definition.id)}
+      %a.pane_action.separator.copy-tipsy{'data-url' => clone_content_view_definition_path(@view_definition.id)}
         = _('Clone')
 
     - if @view_definition.deletable?
