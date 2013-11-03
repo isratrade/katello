@@ -41,7 +41,7 @@ module Navigation
       [
         { :key => :organization_details,
           :name => _("Details"),
-          :url => lambda{edit_katello_organization_path(@organization.label)},
+          :url => lambda{edit_organization_path(@organization.label)},
           :if => lambda{@organization},
           :options => {:class => "panel_link"}
         },
@@ -54,7 +54,7 @@ module Navigation
         },
         { :key => :organization_history,
           :name => _("History"),
-          :url => lambda{events_katello_organization_path(@organization.label)},
+          :url => lambda{events_organization_path(@organization.label)},
           :if => lambda{@organization},
           :options => {:class => "panel_link"}
         }

@@ -26,19 +26,19 @@ module Navigation
       [
         { :key => :environment,
           :name => _("Defaults"),
-          :url => lambda{edit_environment_katello_user_path(@user.id)},
+          :url => lambda{edit_environment_user_path(@user.id)},
           :if => lambda {@user},
           :options => {:class => "panel_link"}
         },
         { :key => :user_roles,
           :name => _("Roles"),
-          :url => lambda{edit_katello_role_path(@user.own_role.id)},
+          :url => lambda{edit_role_path(@user.own_role.id)},
           :if => lambda{@user},
           :options => {:class => "panel_link"}
         },
         { :key => :user_details,
           :name => _("Details"),
-          :url => lambda{edit_katello_user_path(@user.id)},
+          :url => lambda{edit_user_path(@user.id)},
           :if => lambda{@user},
           :options => {:class => "panel_link"}
         }
