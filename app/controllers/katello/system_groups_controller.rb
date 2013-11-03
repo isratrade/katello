@@ -179,7 +179,7 @@ class SystemGroupsController < Katello::ApplicationController
         :titles => [_('Name')],
         :create => _('System Group'),
         :name => controller_display_name,
-        :ajax_scroll => items_katello_system_groups_path,
+        :ajax_scroll => items_system_groups_path,
         :enable_create => SystemGroup.creatable?(current_organization),
         :initial_action => :systems,
         :list_partial => 'katello/system_groups/list_groups',
