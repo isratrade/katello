@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-#  mount Katello::Engine => "/katello"
+  mount Katello::Engine => "/katello"
 
   resources :users, :except => [:show] do
     collection do
