@@ -4,7 +4,7 @@ development:
   port:     5432
   username: postgres
   password: postgres
-  database: kat
+  database: foreman_foreman3
   schema_search_path: public
   encoding: utf8
   template: template0
@@ -15,7 +15,7 @@ test:
   port:     5432
   username: postgres
   password: postgres
-  database: kat_test
+  database: foreman_test
   schema_search_path: public
   encoding: utf8
   template: template0
@@ -26,7 +26,7 @@ production:
   port:     5432
   username: postgres
   password: postgres
-  database: kat
+  database: foreman_foreman3
   schema_search_path: public
   encoding: utf8
   template: template0
