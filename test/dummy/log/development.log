@@ -24301,3 +24301,5 @@ NoMethodError (undefined method `readable?' for nil:NilClass):
   Rendered /usr/local/rvm/gems/ruby-1.9.3-p448@katellogems/gems/actionpack-3.2.15/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.9ms)
 Connecting to database specified by database.yml
   [1m[36m (0.2ms)[0m  [1mSET search_path TO public[0m
+  [1m[36m (0.2ms)[0m  [1mSET search_path TO public[0m
+  [1m[36m (0.2ms)[0m  [1mSET search_path TO public[0m
