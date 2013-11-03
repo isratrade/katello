@@ -185,9 +185,9 @@ class SubscriptionsController < Katello::ApplicationController
   end
 
   def upload
-    if !params[:katello_provider].blank? && params[:katello_provider].key?(:contents)
+    if !params[:provider].blank? && params[:provider].key?(:contents)
       begin
-        temp_file_path = create_temp_file('import') {|tmp| tmp.write params[:katello_provider][:contents].read }
+        temp_file_path = create_temp_file('import') {|tmp| tmp.write params[:provider][:contents].read }
         # force must be a string value
         force_update = params[:force_import] == "1" ? "true" : "false"
         @provider.import_manifest File.expand_path(temp_file_path), :force => force_update,

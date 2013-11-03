@@ -118,7 +118,7 @@ class RolesController < Katello::ApplicationController
   end
 
   def create
-    @role = Role.create!(params[:katello_role])
+    @role = Role.create!(params[:role])
     notify.success _("Role '%s' was created.") % @role.name
 
     if search_validate(Role, @role.id, params[:search])

@@ -54,7 +54,7 @@ class Api::V1::RepositorySetsController < Api::V1::ApiController
     raise _('Repository sets are not available for custom products.') if @product.custom?
     content = @product.productContent.collect do |pc|
       content                   = pc.content.as_json.symbolize_keys
-      content[:katello_enabled] = pc.katello_enabled?
+      content[:enabled] = pc.katello_enabled?
       content
     end
     respond :collection => content

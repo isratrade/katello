@@ -91,14 +91,14 @@ class OrganizationsController < Katello::ApplicationController
   # rubocop:disable MethodLength
   def create
     org_label_assigned = ""
-    org_params = params[:katello_organization]
+    org_params = params[:organization]
     return render_bad_parameters if org_params.nil?
     org_params[:label], org_label_assigned = generate_label(org_params[:name], 'organization') if org_params[:label].blank?
     @organization = Organization.new(:name => org_params[:name], :label => org_params[:label], :description => org_params[:description])
     @organization.save!
 
     env_label_assigned = ""
-    env_params = params[:katello_environment]
+    env_params = params[:environment]
     if env_params[:name].present?
       if env_params[:label].blank?
         env_params[:label], env_label_assigned = generate_label(env_params[:name], 'environment') if env_params[:label].blank?

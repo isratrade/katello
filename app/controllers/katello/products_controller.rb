@@ -55,7 +55,7 @@ class ProductsController < Katello::ApplicationController
   end
 
   def create
-    product_params = params[:katello_product]
+    product_params = params[:product]
     requested_label = String.new(product_params[:label]) unless product_params[:label].blank?
     product_params[:label], _ = generate_label(product_params[:name], 'product') if product_params[:label].blank?
 

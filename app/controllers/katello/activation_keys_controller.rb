@@ -224,7 +224,7 @@ class ActivationKeysController < Katello::ApplicationController
   end
 
   def create
-    @activation_key = ActivationKey.create!(params[:katello_activation_key]) do |key|
+    @activation_key = ActivationKey.create!(params[:activation_key]) do |key|
       key.organization = current_organization
       key.user = current_user
     end
