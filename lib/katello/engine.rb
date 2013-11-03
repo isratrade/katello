@@ -1,6 +1,7 @@
 module Katello
 
   class Engine < ::Rails::Engine
+    isolate_namespace Katello
     engine_name 'katello'
 
     initializer "katello.simple_navigation" do |app|
@@ -61,16 +62,16 @@ module Katello
 
   end
 
-  def table_name_prefix
-    'katello_'
-  end
+  # def table_name_prefix
+  #   'katello_'
+  # end
 
-  def use_relative_model_naming
-    true
-  end
+  # def use_relative_model_naming
+  #   true
+  # end
 
-  def self.table_name_prefix
-    'katello_'
-  end
+  # def self.table_name_prefix
+  #   'katello_'
+  # end
 
 end
