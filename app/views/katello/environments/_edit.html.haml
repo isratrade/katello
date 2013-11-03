@@ -19,7 +19,7 @@
     %fieldset.clearfix
       .grid_2.ra
         %label #{_("Name")}:
-      .grid_5.la{'name' => 'kt_environment[name]', :class=>("editable edit_env_name" if editable), "data-url"=>katello_organization_environment_path(@organization.label, @environment.id),  "data-forward"=>edit_organization_path(@organization.label)}<> #{@environment.name}
+      .grid_5.la{'name' => 'kt_environment[name]', :class=>("editable edit_env_name" if editable), "data-url"=>organization_environment_path(@organization.label, @environment.id),  "data-forward"=>edit_organization_path(@organization.label)}<> #{@environment.name}
 
     %fieldset
       .grid_2.ra
@@ -29,7 +29,7 @@
     %fieldset.clearfix
       .grid_2.ra
         %label #{_("Description")}:
-      .grid_5.la{:style => "word-wrap: break-word;", :class=>("editable edit_textarea" if editable), 'data-maxlength' => default_description_limit, "data-url"=>katello_organization_environment_path(@organization.label, @environment.id), 'name' => 'kt_environment[description]'}<> #{@environment.description}
+      .grid_5.la{:style => "word-wrap: break-word;", :class=>("editable edit_textarea" if editable), 'data-maxlength' => default_description_limit, "data-url"=>organization_environment_path(@organization.label, @environment.id), 'name' => 'kt_environment[description]'}<> #{@environment.description}
 
     %fieldset.clearfix
       %input{ :type => "hidden", :name => "prior_envs", :value => @env_labels_json }

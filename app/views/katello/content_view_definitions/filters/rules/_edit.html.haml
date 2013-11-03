@@ -6,7 +6,7 @@
 
     .panel_link
       = link_to(_("◀ Back to Filter List"),
-        katello_content_view_definition_filters_path(view_definition.id), {:class => "separator"})
+        content_view_definition_filters_path(view_definition.id), {:class => "separator"})
       = link_to(_("Filter: %{name}") % {:name => filter.name},
         edit_content_view_definition_filter_path(view_definition.id, filter.id))
 

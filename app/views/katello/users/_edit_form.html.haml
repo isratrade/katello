@@ -51,11 +51,11 @@
 
   - if !ldap
     .grid_10
-      = form_tag katello_user_path(@user), :method => :put, :remote => true do
+      = form_tag user_path(@user), :method => :put, :remote => true do
         %fieldset
           .grid_3.ra
             = label :user, :mail, _("Email Address:")
-          .grid_5.la{'name' => 'user[mail]',  :class => editable_class(editable), 'data-url' => katello_user_path(@user)} #{@user.mail}
+          .grid_5.la{'name' => 'user[mail]',  :class => editable_class(editable), 'data-url' => user_path(@user)} #{@user.mail}
 
   .grid_10
     = form_tag update_locale_user_path(@user), :id => "locale_form", :method => :put, :remote => false do

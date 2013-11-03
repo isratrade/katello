@@ -23,12 +23,12 @@
   #organizations
     %input#panel_element_id{:name => @organization.id, :type => "hidden", :value => "#{name}_#{@organization.label}", "data-ajax_url"=>url_for(:action => 'update')}
     .full#organization
-      = form_for(@organization, :html => {:multipart => true, :method => :put, :id => 'organization_edit', :remote => true}, :url => katello_organization_path(@organization.id)) do |f|
+      = form_for(@organization, :html => {:multipart => true, :method => :put, :id => 'organization_edit', :remote => true}, :url => organization_path(@organization.id)) do |f|
 
         %fieldset.fl.clear
           .grid_3.ra
             %label #{_("Name")}:
-          .grid_8.la#organization_name{:title=>@organization[:name], 'name' => 'organization[name]', 'data-url' => katello_organization_path(@organization.label),
+          .grid_8.la#organization_name{:title=>@organization[:name], 'name' => 'organization[name]', 'data-url' => organization_path(@organization.label),
                                        :class=>editable_class(editable)} #{@organization[:name]}
 
         %fieldset.clear

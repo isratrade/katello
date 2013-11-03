@@ -21,7 +21,7 @@
     = image_tag("headpin-login-logo.png", :alt => _('Headpin Logo'))
   -if release_name == 'Katello' || release_name == 'Headpin'
     %span.login-version
-      = Katello.config.katello_version
+      = Katello.config.version
 
 = content_for(:title) do
   = project_name

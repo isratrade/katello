@@ -26,7 +26,7 @@
             %input{:type=>:radio, :name=>:new_product, :value=>:true}
             = _("New Product:")
         .grid_10
-          #new_product{:style=>'display:none;', :data=>{:url=>katello_provider_products_path(@provider.id)}}
+          #new_product{:style=>'display:none;', :data=>{:url=>provider_products_path(@provider.id)}}
             %fieldset
               .grid_2.ra
                 = _('New Product Name')
