@@ -37,9 +37,6 @@ module Katello
     end
 
     config.to_prepare do
-      # Model extensions
-      ::User.send :include, Katello::Concerns::UserExtensions
-
       FastGettext.add_text_domain('katello', {
         :path => File.expand_path("../../../locale", __FILE__),
         :type => :po,
@@ -47,6 +44,10 @@ module Katello
         :report_warning => false
         })
       FastGettext.default_text_domain = 'katello'
+
+      # Model extensions
+      ::User.send :include, Katello::Concerns::UserExtensions
+
 
     end
 
