@@ -269,9 +269,9 @@ module ApplicationHelper
   # a custom provider is important, pass in the provider_id and the current org.
   def subscriptions_pool_link_helper(pool_name, pool_id, provider_id, org)
     if provider_id == org.redhat_provider.id
-      link_to(pool_name, katello_subscriptions_path(pool_id, :anchor => "/&list_search=id:#{pool_id}&panel=subscription_#{pool_id}"))
+      link_to(pool_name, subscriptions_path(pool_id, :anchor => "/&list_search=id:#{pool_id}&panel=subscription_#{pool_id}"))
     elsif !provider_id.nil?
-      link_to(pool_name, katello_providers_path(provider_id, :anchor => "/&list_search=id:#{provider_id}&panel=provider_#{provider_id}"))
+      link_to(pool_name, providers_path(provider_id, :anchor => "/&list_search=id:#{provider_id}&panel=provider_#{provider_id}"))
     else
       pool_name
     end
@@ -281,7 +281,7 @@ module ApplicationHelper
     system = System.find_by_uuid!(uuid)
     if system.readable?
       #link_to(system.name, root_path + "systems#list_search=id:#{system.id}&panel=system_#{system.id}")
-      link_to(system.name, katello_systems_path(system.id, :anchor => "/&list_search=id:#{system.id}&panel=system_#{system.id}"))
+      link_to(system.name, systems_path(system.id, :anchor => "/&list_search=id:#{system.id}&panel=system_#{system.id}"))
     else
       system.name
     end
@@ -292,7 +292,7 @@ module ApplicationHelper
   def distributor_link_helper(distributor_id)
     distributor = Distributor.find(distributor_id)
     if distributor.readable?
-      link_to(distributor.name, katello_distributors_path(distributor.id, :anchor => "/&list_search=id:#{distributor.id}&panel=distributor_#{distributor.id}"))
+      link_to(distributor.name, distributors_path(distributor.id, :anchor => "/&list_search=id:#{distributor.id}&panel=distributor_#{distributor.id}"))
     else
       distributor.name
     end
@@ -302,7 +302,7 @@ module ApplicationHelper
 
   def activation_key_link_helper(key)
     if ActivationKey.readable? key.organization
-      link_to(key.name, katello_activation_keys_path(key.id, :anchor => "/&list_search=id:#{key.id}&panel=activation_key_#{key.id}"))
+      link_to(key.name, activation_keys_path(key.id, :anchor => "/&list_search=id:#{key.id}&panel=activation_key_#{key.id}"))
     else
       key.name
     end

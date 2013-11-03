@@ -25,7 +25,7 @@ module ContentViewDefinitionsHelper
     # to view details on all versions of the content view across
     # all environments.  This will allow the user to more easily
     # view the differences between environments/versions.
-    katello_content_search_index_path + search_string(view)
+    content_search_index_path + search_string(view)
   end
 
   def search_string(view)
