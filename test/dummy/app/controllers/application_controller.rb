@@ -12,5 +12,11 @@ class ApplicationController < ActionController::Base
   	User.current
   end
 
+  def set_admin_user
+    User.current = User.admin
+  end
+
+  # standard layout to all controllers
+  helper 'layout'
 
 end
