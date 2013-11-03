@@ -171,7 +171,7 @@ class GpgKeysController < ApplicationController
       :create_label => _('+ New GPG Key'),
       :name => controller_display_name,
       :ajax_load  => true,
-      :ajax_scroll => items_katello_gpg_keys_path,
+      :ajax_scroll => items_gpg_keys_path,
       :initial_action => :products_repos,
       :enable_create => GpgKey.createable?(current_organization),
       :search_class => GpgKey

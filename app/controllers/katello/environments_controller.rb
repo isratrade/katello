@@ -114,7 +114,7 @@ class EnvironmentsController < Katello::ApplicationController
     if @environment.destroyed?
       notify.success _("Environment '%s' was deleted.") % @environment.name
       render :partial => "katello/common/post_delete_close_subpanel",
-             :locals => { :path => edit_katello_organization_path(@organization.label) }
+             :locals => { :path => edit_organization_path(@organization.label) }
     else
       err_msg = N_("Removal of the environment failed. If you continue having trouble with this, please contact an Administrator.")
       notify.error err_msg

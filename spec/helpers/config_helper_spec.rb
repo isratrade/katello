@@ -3,6 +3,6 @@ def stub_headpin_mode
   Katello.config.stub(:katello? => false, :headpin? => true, :app_mode => 'headpin')
 end
 
-def stub_katello_mode
+def stub_mode
   Katello.config.stub(:katello? => true, :headpin? => false, :app_mode => 'katello')
 end

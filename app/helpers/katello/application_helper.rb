@@ -203,13 +203,13 @@ module ApplicationHelper
   #returns a proc to generate a url for the env_selector
   def url_products_proc
     lambda do |args|
-      products_katello_organization_environment_path(args[:organization].label, args[:environment].id)
+      products_organization_environment_path(args[:organization].label, args[:environment].id)
     end
   end
 
   def url_content_views_proc
     lambda do |args|
-      content_views_katello_organization_environment_path(args[:organization].label, args[:environment].id)
+      content_views_organization_environment_path(args[:organization].label, args[:environment].id)
     end
   end
 

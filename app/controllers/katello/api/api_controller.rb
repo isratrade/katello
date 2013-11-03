@@ -57,7 +57,7 @@ class Api::ApiController < ::Api::BaseController
     return false
   end
 
-  def request_from_katello_cli?
+  def request_from_cli?
     request.user_agent.to_s =~ /^katello-cli/
   end
 
@@ -71,7 +71,7 @@ class Api::ApiController < ::Api::BaseController
     # instead for now. Therefore this method should be used only
     # rarely in cases where the expected behaviour differs between
     # this two agents, without large impact on other possible clients.
-    !request_from_katello_cli?
+    !request_from_cli?
   end
 
   def process_action(method_name, *args)

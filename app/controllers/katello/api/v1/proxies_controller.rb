@@ -78,7 +78,7 @@ class Api::V1::ProxiesController < Api::V1::ApiController
 
   rescue_from RestClient::Exception do |e|
     Rails.logger.error pp_exception(e)
-    if request_from_katello_cli?
+    if request_from_cli?
       render :json => { :errors => [e.http_body] }, :status => e.http_code
     else
       render :text => e.http_body, :status => e.http_code

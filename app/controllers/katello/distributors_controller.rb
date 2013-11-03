@@ -390,7 +390,7 @@ class DistributorsController < Katello::ApplicationController
       :name => controller_display_name,
       :list_partial => 'list_distributors',
       :ajax_load  => true,
-      :ajax_scroll => items_katello_distributors_path,
+      :ajax_scroll => items_distributors_path,
       :actions => Distributor.any_deletable?(@environment, current_organization) ? 'actions' : nil,
       :initial_action => :subscriptions,
       :search_class => Distributor,

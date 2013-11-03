@@ -71,7 +71,7 @@ class FilterRulesController < Katello::ApplicationController
                    {:type => params[:katello_filter_rule][:content_type], :filter => @filter.name})
 
     render :partial => "katello/common/post_action_close_subpanel",
-           :locals => {:path => edit_katello_content_view_definition_filter_rule_path(@view_definition, @filter, rule)}
+           :locals => {:path => edit_content_view_definition_filter_rule_path(@view_definition, @filter, rule)}
   end
 
   def edit

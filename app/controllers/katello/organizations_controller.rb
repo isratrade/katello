@@ -265,7 +265,7 @@ class OrganizationsController < Katello::ApplicationController
                        :name => controller_display_name,
                        :accessor => :label,
                        :ajax_load  => true,
-                       :ajax_scroll => items_katello_organizations_path,
+                       :ajax_scroll => items_organizations_path,
                        :enable_create => Organization.creatable?,
                        :search_class => Organization}
   end

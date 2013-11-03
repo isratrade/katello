@@ -234,7 +234,7 @@ class ProvidersController < Katello::ApplicationController
                        :create_label => _('+ New Provider'),
                        :name => controller_display_name,
                        :ajax_load => true,
-                       :ajax_scroll => items_katello_providers_path,
+                       :ajax_scroll => items_providers_path,
                        :initial_action => :products_repos,
                        :search_class => Provider,
                        :enable_create => Provider.creatable?(current_organization)}

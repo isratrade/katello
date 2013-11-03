@@ -282,7 +282,7 @@ class ChangesetsController < Katello::ApplicationController
                        :name => controller_display_name,
                        :accessor => :id,
                        :ajax_load => true,
-                       :ajax_scroll => items_katello_changesets_path,
+                       :ajax_scroll => items_changesets_path,
                        :search_class => Changeset}
   end
 

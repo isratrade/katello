@@ -291,7 +291,7 @@ class ContentViewDefinitionsController < Katello::ApplicationController
       :create_label => _('+ New View Definition'),
       :name => controller_display_name,
       :ajax_load  => true,
-      :ajax_scroll => items_katello_content_view_definitions_path,
+      :ajax_scroll => items_content_view_definitions_path,
       :enable_create => ContentViewDefinition.creatable?(current_organization),
       :initial_action => :views,
       :search_class => ContentViewDefinition}

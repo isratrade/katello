@@ -295,7 +295,7 @@ class SubscriptionsController < Katello::ApplicationController
                        :name => controller_display_name,
                        :list_partial => 'katello/subscriptions/list_subscriptions',
                        :ajax_load  => true,
-                       :ajax_scroll => items_katello_subscriptions_path,
+                       :ajax_scroll => items_subscriptions_path,
                        :actions => nil,
                        :search_class => Pool,
                        :accessor => 'unused'

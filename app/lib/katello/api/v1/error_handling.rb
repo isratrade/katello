@@ -59,7 +59,7 @@ module Api
 
       def rescue_from_exception_with_response(exception)
         logger.error "exception when talking to a remote client: #{exception.message} " << pp_exception(exception)
-        if request_from_katello_cli?
+        if request_from_cli?
           # TODO: why not use http_code from the exception???
           render :json => format_subsys_exception_hash(exception), :status => :bad_request
         else
