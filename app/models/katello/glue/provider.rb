@@ -348,14 +348,14 @@ module Glue::Provider
     def import_products_from_cp(options = {})
 
       import_logger = options[:import_logger]
-      product_in_katello_ids = self.organization.providers.redhat.first.products.pluck("cp_id")
+      product_in_ids = self.organization.providers.redhat.first.products.pluck("cp_id")
       products_in_candlepin_ids = []
 
       marketing_to_engineering_product_ids_mapping.each do |marketing_product_id, engineering_product_ids|
         engineering_product_ids = engineering_product_ids.uniq
         products_in_candlepin_ids << marketing_product_id
         products_in_candlepin_ids.concat(engineering_product_ids)
-        added_eng_products = (engineering_product_ids - product_in_katello_ids).map do |id|
+        added_eng_products = (engineering_product_ids - product_in_ids).map do |id|
           Resources::Candlepin::Product.get(id)[0]
         end
         adjusted_eng_products = []
@@ -380,19 +380,19 @@ module Glue::Provider
           end
         end
 
-        product_in_katello_ids.concat(adjusted_eng_products.map{|p| p["id"]})
+        product_in_ids.concat(adjusted_eng_products.map{|p| p["id"]})
 
-        unless product_in_katello_ids.include?(marketing_product_id)
-          engineering_product_in_katello_ids = Product.in_org(self.organization).
+        unless product_in_ids.include?(marketing_product_id)
+          engineering_product_in_ids = Product.in_org(self.organization).
             where(:cp_id => engineering_product_ids).pluck("#{Katello::Product.table_name}.id")
-          Glue::Candlepin::Product.import_marketing_from_cp(Resources::Candlepin::Product.get(marketing_product_id)[0], engineering_product_in_katello_ids) do |p|
+          Glue::Candlepin::Product.import_marketing_from_cp(Resources::Candlepin::Product.get(marketing_product_id)[0], engineering_product_in_ids) do |p|
             p.provider = self
           end
-          product_in_katello_ids << marketing_product_id
+          product_in_ids << marketing_product_id
         end
       end
 
-      product_to_remove_ids = (product_in_katello_ids - products_in_candlepin_ids).uniq
+      product_to_remove_ids = (product_in_ids - products_in_candlepin_ids).uniq
       product_to_remove_ids.each { |cp_id| Product.find_by_cp_id(cp_id, self.organization).destroy }
 
       self.index_subscriptions
