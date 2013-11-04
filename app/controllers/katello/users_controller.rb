@@ -362,7 +362,7 @@ class UsersController < ApplicationController
                        :create_label => _('+ New User'),
                        :name          => controller_display_name,
                        :ajax_load     => true,
-                       :ajax_scroll   => items_katello_users_path,
+                       :ajax_scroll   => items_users_path,
                        :enable_create => false, # TODO: ENGINE disable until nutupane http://projects.theforeman.org/issues/3436
                        :search_class  => User }
   end
