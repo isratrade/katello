@@ -53,7 +53,7 @@ class UserSessionsController < Katello::ApplicationController
   end
 
   def allowed_orgs
-    render :partial => "katello/layouts/allowed_orgs", :locals => {:user => current_user}
+    render :partial => "katello/allowed_orgs", :locals => {:user => current_user}
   end
 
   def set_org
