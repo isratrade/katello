@@ -2,6 +2,6 @@
   %li.dropdown-item
     %div.dropdown-item-link
       = render :partial => "katello/common/fav", :locals => { :org => org, :current_user => current_user }
-      %a.org-link{ "href" => set_org_katello_user_session_path(:org_id => org.id), 'data-method' => "POST", :rel => "nofollow",
+      %a.org-link{ "href" => set_org_user_session_path(:org_id => org.id), 'data-method' => "POST", :rel => "nofollow",
         "ng-click" => "orgSwitcher.selectOrg($event, #{org.id})" }
         = org.name

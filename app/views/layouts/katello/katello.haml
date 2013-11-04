@@ -24,7 +24,7 @@
         = yield
 
 = content_for(:footer) do
-  = render :partial => "katello/common/footer"
+  = render "katello/common/footer"
 
 = content_for(:javascripts_block) do
   = javascript_include_tag "katello/common/vendor"
