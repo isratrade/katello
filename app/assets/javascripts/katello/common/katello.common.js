@@ -201,3 +201,7 @@ KT.common = (function() {
         }
     };
 })(jQuery);
+
+$(document).ready(function(){
+  alert('Executing JS on app/assets/javascripts/katello/common/katello.common.js')
+});

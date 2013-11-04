@@ -38,3 +38,7 @@
 //= require "ui_alchemy/alchemy/alchemy"
 //= require "ui_alchemy/alchemy-header/alchemy-header"
 //= require "katello/angular-ui-states"
+
+$(document).ready(function(){
+  alert('Executing JS on app/assets/javascripts/katello/common/vendor.js')
+});
