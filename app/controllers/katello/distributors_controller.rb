@@ -126,7 +126,7 @@ class DistributorsController < Katello::ApplicationController
 
   def create
     @distributor = Distributor.new
-    @distributor.name = params["katello_distributor"]["name"]
+    @distributor.name = params["distributor"]["name"]
     @distributor.cp_type = "candlepin"  # The 'candlepin' type is allowed to export a manifest
     @distributor.facts = {'distributor_version' => 'sam-1.3'}  # TODO: forcing to full capabilities
     @distributor.environment = KTEnvironment.find(params["distributor"]["environment_id"])
