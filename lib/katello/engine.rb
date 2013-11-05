@@ -1,6 +1,7 @@
 module Katello
 
   class Engine < ::Rails::Engine
+    isolate_namespace Katello
     engine_name 'katello'
 
     initializer "katello.simple_navigation" do |app|
@@ -23,6 +24,12 @@ module Katello
       app.routes_reloader.paths << "#{Katello::Engine.root}/config/routes/api/v2.rb"
     end
 
+    initializer 'katello.action_controller' do |app|
+      ActiveSupport.on_load :action_controller do
+        helper Katello::Engine.helpers
+      end
+    end
+
     initializer "logging" do |app|
       if caller.last =~ /script\/delayed_job:\d+$/ ||
           ((caller[-10..-1] || []).any? {|l| l =~ /\/rake/} && ARGV.include?("jobs:work"))
@@ -37,8 +44,18 @@ module Katello
     end
 
     config.to_prepare do
+      FastGettext.add_text_domain('katello', {
+        :path => File.expand_path("../../../locale", __FILE__),
+        :type => :po,
+        :ignore_fuzzy => true,
+        :report_warning => false
+        })
+      FastGettext.default_text_domain = 'katello'
+
       # Model extensions
       ::User.send :include, Katello::Concerns::UserExtensions
+
+
     end
 
     rake_tasks do
@@ -49,18 +66,6 @@ module Katello
       load "#{Katello::Engine.root}/lib/katello/tasks/jenkins.rake"
     end
 
-  end
-
-  def table_name_prefix
-    'katello_'
-  end
-
-  def use_relative_model_naming
-    true
-  end
-
-  def self.table_name_prefix
-    'katello_'
   end
 
 end

@@ -64,8 +64,8 @@ class UserSessionsController < Katello::ApplicationController
     end
     if self.current_organization == org
       respond_to do |format|
-        format.html { redirect_to katello_dashboard_index_path }
-        format.js { render :js => "CUI.Login.Actions.redirecter('#{katello_dashboard_index_url}')" }
+        format.html { redirect_to dashboard_index_path }
+        format.js { render :js => "CUI.Login.Actions.redirecter('#{dashboard_index_url}')" }
       end
     end
   end
