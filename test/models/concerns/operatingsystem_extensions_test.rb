@@ -26,11 +26,11 @@ module Katello
       @my_distro = OpenStruct.new(:name => 'RedHat', :family => 'Red Hat Enterprise Linux', :version => '9.0')
 
       @config_template = ConfigTemplate.find(config_templates(:pxe_default))
-      @config_template.name = Operatingsystem::OS['foreman_os_rhel_provisioning_template']
+      @config_template.name = 'Katello Kickstart Default for RHEL'
       @config_template.save
 
       @ptable = Ptable.find(ptables(:one))
-      @ptable.name =Operatingsystem::OS['foreman_os_ptable']
+      @ptable.name = 'RedHat default'
       @ptable.save
     end
 

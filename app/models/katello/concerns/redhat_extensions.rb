@@ -28,6 +28,55 @@ module Katello
         end
       end
 
+      module ClassMethods
+        def find_or_create_operating_system(distribution)
+          major, minor = distribution.version.split('.')
+
+          os = Operatingsystem.where(:name => 'RedHat', :major => major, :minor => minor).first
+          os = create_operating_system('RedHat', major, minor) unless os
+
+          return os
+        end
+
+        def create_operating_system(name, major, minor)
+          params = {
+              'name' => name,
+              'major' => major.to_s,
+              'minor' => minor.to_s,
+              'family' => 'Redhat'
+          }
+
+          provisioning_template_name = if name == 'RedHat'
+                                         'Katello Kickstart Default for RHEL'
+                                       else
+                                         'Katello Kickstart Default'
+                                       end
+
+          templates_to_add = [ConfigTemplate.find_by_name(provisioning_template_name),
+                              ConfigTemplate.find_by_name('Kickstart default PXElinux')].compact
+
+          params['os_default_templates_attributes'] = templates_to_add.map do |template|
+            {
+                "config_template_id" => template.id,
+                "template_kind_id" => template.template_kind.id,
+            }
+          end
+
+          if ptable = Ptable.find_by_name('RedHat default')
+            params['ptable_ids'] = [ptable.id]
+          end
+
+          os = Operatingsystem.create!(params)
+
+          templates_to_add.each do |template|
+            template.operatingsystems << os
+            template.save!
+          end
+
+          return os
+        end
+      end
+
       private
 
       def kickstart_repo host
