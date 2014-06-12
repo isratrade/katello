@@ -33,6 +33,7 @@ module Katello
 
         has_many :hosts,      :class_name => "::Host::Managed", :foreign_key => :pulp_proxy_id, :inverse_of => :smart_proxies
         has_many :hostgroups, :class_name => "::Hostgroup",     :foreign_key => :pulp_proxy_id, :inverse_of => :smart_proxies
+        attr_accessible :lifecycle_environment_ids
       end
 
       def default_capsule?
@@ -56,6 +57,7 @@ module Katello
       def associate_lifecycle_environments
         self.lifecycle_environments = Katello::KTEnvironment.all if self.default_capsule?
       end
+
     end
   end
 end
