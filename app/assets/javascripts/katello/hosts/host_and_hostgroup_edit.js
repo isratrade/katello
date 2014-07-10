@@ -1,3 +1,11 @@
+$(document).on('ContentLoad', function(){onKatelloHostEditLoad()});
+
+function onKatelloHostEditLoad(){
+  $('#host_operatingsystem_id').live('change', function() {
+   alert( "on .change() called." );
+  });
+}
+
 function update_environment_label(item) {
     var lifecycle_env = $(item).val().trim();
     if (lifecycle_env.length > 0) {
