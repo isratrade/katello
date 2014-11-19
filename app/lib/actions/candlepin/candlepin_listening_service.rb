@@ -18,7 +18,7 @@ module Actions
 
     class CandlepinListeningService
       RECONNECT_ATTEMPTS = 30
-      TIMEOUT =  Qpid::Messaging::Duration::SECOND
+      TIMEOUT =  30 #Qpid::Messaging::Duration::SECOND
       NO_MESSAGE_AVAILABLE_ERROR_TYPE = 'NoMessageAvailable'
 
       class << self
@@ -42,7 +42,7 @@ module Actions
       end
 
       def create_connection
-        Qpid::Messaging::Connection.new(:url => @url, :options => {:transport => 'ssl'})
+        true #Qpid::Messaging::Connection.new(:url => @url, :options => {:transport => 'ssl'})
       end
 
       def close
