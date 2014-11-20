@@ -10,7 +10,6 @@ tags
 .ropeproject
 .rvmrc*
 .DS_Store
-Gemfile*.lock
 .bundle
 .bin
 db/*.sqlite3
@@ -21,7 +20,6 @@ hudson
 yard
 tmp
 *~
-config/katello.yml
 *.iml
 locale/*/LC_MESSAGES
 locale/.cache/*
