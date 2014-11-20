@@ -55,12 +55,12 @@ module Katello
       app.config.autoload_paths += Dir["#{config.root}/app/views/foreman"]
     end
 
-    initializer "katello.assets.paths", :group => :all do |app|
-      app.config.sass.load_paths << "#{::UIAlchemy::Engine.root}/vendor/assets/ui_alchemy/alchemy-forms"
-      app.config.sass.load_paths << "#{::UIAlchemy::Engine.root}/vendor/assets/ui_alchemy/alchemy-buttons"
-      app.config.sass.load_paths << Bastion::Engine.root.join('vendor', 'assets', 'stylesheets', 'bastion',
-                                                           'font-awesome', 'scss')
-    end
+    # initializer "katello.assets.paths", :group => :all do |app|
+    #   app.config.sass.load_paths << "#{::UIAlchemy::Engine.root}/vendor/assets/ui_alchemy/alchemy-forms"
+    #   app.config.sass.load_paths << "#{::UIAlchemy::Engine.root}/vendor/assets/ui_alchemy/alchemy-buttons"
+    #   app.config.sass.load_paths << Bastion::Engine.root.join('vendor', 'assets', 'stylesheets', 'bastion',
+    #                                                        'font-awesome', 'scss')
+    # end
 
     initializer "katello.paths" do |app|
       app.routes_reloader.paths << "#{Katello::Engine.root}/config/routes/api/v2.rb"
@@ -81,15 +81,15 @@ module Katello
       app.config.active_record.logger = ::Logging.logger['sql']
     end
 
-    initializer :register_assets do |app|
-      if Rails.env.production?
-        assets = YAML.load_file("#{Katello::Engine.root}/public/assets/katello/manifest.yml")
+    # initializer :register_assets do |app|
+    #   if Rails.env.production?
+    #     assets = YAML.load_file("#{Katello::Engine.root}/public/assets/katello/manifest.yml")
 
-        assets.each_pair do |file, digest|
-          app.config.assets.digests[file] = digest
-        end
-      end
-    end
+    #     assets.each_pair do |file, digest|
+    #       app.config.assets.digests[file] = digest
+    #     end
+    #   end
+    # end
 
     config.to_prepare do
       FastGettext.add_text_domain('katello',

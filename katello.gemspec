@@ -35,7 +35,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency "justified"
   gem.add_dependency "strong_parameters", "~> 0.2.1" # remove after we upgrade to Rails 4
 
-  gem.add_dependency "qpid_messaging", ">= 0.26.1", '<= 0.28.1'
+ # gem.add_dependency "qpid_messaging", ">= 0.26.1", '<= 0.28.1'
 
   gem.add_dependency "gettext_i18n_rails"
   gem.add_dependency "i18n_data", ">= 0.2.6"
@@ -49,21 +49,21 @@ Gem::Specification.new do |gem|
 
   # UI
   gem.add_dependency "sass-rails"
-  gem.add_development_dependency "compass-rails", "< 1.1.4"
-  gem.add_development_dependency "compass-960-plugin"
+  gem.add_dependency "compass-rails", "< 1.1.4"
+  gem.add_dependency "compass-960-plugin"
   gem.add_dependency "haml-rails"
   gem.add_dependency "ui_alchemy-rails", '1.0.12'
   gem.add_dependency "deface", '< 1.0.0'
   gem.add_dependency "jquery-ui-rails"
   gem.add_dependency "bastion"
-  gem.add_development_dependency "less-rails", "~> 2.5.0"
+  gem.add_dependency "less-rails", "~> 2.5.0"
 
   # Testing
-  gem.add_development_dependency "factory_girl_rails"
-  gem.add_development_dependency "minitest-tags"
-  gem.add_development_dependency "mocha"
-  gem.add_development_dependency "vcr"
-  gem.add_development_dependency "webmock"
-  gem.add_development_dependency "rubocop-checkstyle_formatter"
+  gem.add_dependency "factory_girl_rails"
+  gem.add_dependency "minitest-tags"
+  gem.add_dependency "mocha"
+  gem.add_dependency "vcr"
+  gem.add_dependency "webmock"
+  gem.add_dependency "rubocop-checkstyle_formatter"
 
 end
