@@ -149,9 +149,7 @@ module Actions
       end
 
       def initialize_listening_service(suspended_action)
-        CandlepinListeningService.initialize(world.logger,
-                                             ::Katello.config.qpid.url,
-                                             ::Katello.config.qpid.subscriptions_queue_address)
+        CandlepinListeningService.initialize(world.logger, 'qpid.url.com', 'qpid.queue_address.com')
         suspended_action.notify_not_connected("initialized...have not connected yet")
         rescue => e
           Rails.logger.error(e.message)
